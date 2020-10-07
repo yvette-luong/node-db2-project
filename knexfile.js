@@ -1,12 +1,16 @@
 // Update with your config settings.
 
 module.exports = {
-
+  //configuration for the development enviroment db connection 
   development: {
-    client: 'sqlite3',
+    client: 'sqlite3', //database driver 
     connection: {
-      filename: './dev.sqlite3'
-    }
+      filename: './data/car-dealer.db3' // which file am i using 
+    }, 
+    useNullAsDefault: true, // required for SQLite only 
+    // migrations: {
+    //   directory: './migrations/'
+    // }
   },
 
   staging: {
@@ -24,10 +28,11 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   },
-
+  //configuration for the production enviroment db connection 
   production: {
     client: 'postgresql',
     connection: {
+      host : 'postcarprojectsql://cartheweb.com',
       database: 'my_db',
       user:     'username',
       password: 'password'
